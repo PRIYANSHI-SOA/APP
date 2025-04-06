@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Landing Page</title>
+    <style>
+        /* Reset some default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #6a11cb, #2575fc); /* Gradient background */
+            color: #fff;
+            scroll-behavior: smooth; /* Smooth scrolling */
+            line-height: 1.6;
+        }
+
+        /* Navigation Menu */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        #navbar ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #navbar ul li {
+            margin: 0 25px;
+        }
+
+        #navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #navbar ul li a:hover {
+            background-color: #ff6347; /* Hover background color */
+            color: #fff;
+            transform: translateY(-5px); /* Hover effect */
+        }
+
+        #navbar.scrolled {
+            background-color: rgba(0, 0, 0, 0.9); /* Darker background when scrolled */
+        }
+
+        /* Section Styling */
+        section {
+            padding: 120px 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: background-color 0.5s ease;
+        }
+
+        /* Section Colors */
+        #home { background-color: #f5f5f5; }
+        #services { background-color: #ffdf7f; }
+        #about { background-color: #a3d9ff; }
+        #contact { background-color: #ff7f7f; }
+
+        /* Heading Styling */
+        h1, h2 {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #333;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        /* Scroll Animation */
+        section h1, section h2 {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            #navbar ul {
+                flex-direction: column;
+            }
+
+            #navbar ul li {
+                margin: 10px 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content Sections -->
+    <section id="home">
+        <h1>Welcome to Our Website</h1>
+        <p>Your journey to success starts here. Let's make it happen together.</p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>We provide top-notch services to help you grow and achieve your goals.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are a dedicated team focused on delivering the best experience for our clients.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us today to find out how we can help you.</p>
+    </section>
+
+    <script>
+        // Select the navbar
+        const navbar = document.getElementById('navbar');
+
+        // Change navbar style on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
